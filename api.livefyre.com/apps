@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+DIR=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
+
+api_livefyre_com=`$DIR/../base_url`
+headers=${headers:-`cat $DIR/../headers/labs.fyre.co`}
+
+>&2 echo "GET /apps"
+curl $api_livefyre_com/apps \
+-v \
+-H "$headers" \

@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+# Test all the APIs
+
+./api.livefyre.com/apps &&
+./api.livefyre.com/libraries/{network}/assets adobe-int-0.fyre.co &&
+./api.livefyre.com/collections/{id} 10633838

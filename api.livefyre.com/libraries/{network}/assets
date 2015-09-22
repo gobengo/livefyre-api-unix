@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+
+DIR=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
+
+api_livefyre_com=`$DIR/../../../base_url`
+
+network=$1
+if [[ "$network" == "" ]]; then
+  echo "Provide a UAT Network {network} as an argument (e.g. adobe-int-0.fyre.co)";
+  exit 1
+fi
+
+headers=${headers:-`cat $DIR/../../../headers/$network`}
+
+>&2 echo "GET /libraries/{network}/assets"
+curl $api_livefyre_com/libraries/$network \
+-v \
+-H "$headers" \

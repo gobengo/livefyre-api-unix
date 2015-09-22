@@ -1,0 +1,2 @@
+#!/usr/bin/env bash
+echo "https://hlsozc1424.execute-api.us-east-1.amazonaws.com/v0"

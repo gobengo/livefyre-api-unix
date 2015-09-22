@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+
+DIR=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
+
+api_livefyre_com=`$DIR/../../base_url`
+headers=${headers:""}
+
+collection_id=$1
+if [[ "$collection_id" == "" ]]; then
+  echo "Provide a Collection {id} as an argument (e.g. 10633838)";
+  exit 1
+fi
+
+>&2 echo "GET /collections/{id}"
+curl $api_livefyre_com/collections/$collection_id \
+-v \
+-H "$headers" \
